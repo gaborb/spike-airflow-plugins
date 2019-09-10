@@ -1,6 +1,6 @@
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-	"name": "Existing Docker Compose (Extend)",
+	"name": "Existing Docker Compose",
 
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
@@ -35,5 +35,7 @@
 	// "postCreateCommand": "apt-get update && apt-get install -y git",
 
 	// Add the IDs of extensions you want installed when the container is created in the array below.
-	"extensions": []
+	"extensions": [
+		"ms-python.python"
+	]
 }
