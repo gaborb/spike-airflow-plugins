@@ -7,7 +7,7 @@ setup(
     test_suite="tests",
     entry_points={
         "airflow.plugins": [
-            "my_namespace = spike_airflow_plugins.my_plugin:MyAirflowPlugin"
+            "my_namespace = spike_airflow_plugins.my_airflow_plugin:MyAirflowPlugin"
         ],
     },
 )

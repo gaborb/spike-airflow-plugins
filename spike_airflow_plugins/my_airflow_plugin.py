@@ -1,14 +1,14 @@
 from airflow.plugins_manager import AirflowPlugin
 
 from airflow.contrib.hooks.bigquery_hook import BigQueryHook
+from airflow.contrib.operators.bigquery_operator import BigQueryOperator
 from airflow.utils.decorators import apply_defaults
 # from airflow.models import BaseOperator
 from airflow.sensors.base_sensor_operator import BaseSensorOperator
 from googleapiclient.errors import HttpError
 
 
-# pylint: disable=abstract-method
-class MyHook(BigQueryHook):
+class MyHook(BigQueryHook): # pylint: disable=abstract-method
     def is_job_done(self, project_id, job_id):
         service = self.get_service()
         try:
@@ -22,8 +22,9 @@ class MyHook(BigQueryHook):
             raise
 
 
-# class MyOperator(BaseOperator):
-#     pass
+class MyOperator(BigQueryOperator):
+    def __init__(self, *args, **kwargs):
+        super(MyOperator, self).__init__(sql="SELECT 1", *args, **kwargs)
 
 
 class MySensorOperator(BaseSensorOperator):
@@ -52,5 +53,5 @@ class MySensorOperator(BaseSensorOperator):
 class MyAirflowPlugin(AirflowPlugin):
     name = "my_namespace"
     hooks = [MyHook]
-    # operators = [MyOperator]
+    operators = [MyOperator]
     sensors = [MySensorOperator]
