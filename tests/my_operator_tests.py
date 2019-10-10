@@ -3,7 +3,7 @@ from unittest import mock
 from datetime import datetime
 from airflow import DAG, configuration
 from airflow.models import TaskInstance
-from airflow.operators.my_namespace import MyOperator
+from spike_airflow_plugins.my_airflow_plugin import MyOperator
 
 
 class MyOperatorTests(unittest.TestCase):
