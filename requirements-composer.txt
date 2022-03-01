@@ -2,7 +2,7 @@ absl-py==0.6.1
 adal==1.2.0
 alembic==0.8.10
 amqp==2.4.2
-apache-airflow===1.10.2-composer
+apache-airflow===2.2.4
 asn1crypto==0.24.0
 astor==0.7.1
 Babel==2.6.0
